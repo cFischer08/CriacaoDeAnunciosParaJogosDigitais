@@ -1,68 +1,412 @@
 import Image from "next/image";
 
+const resources = [
+  {
+    title: "Google Forms",
+    description: "Crie os formulários para a atividade.",
+    href: "https://docs.google.com/forms/u/0/",
+    category: "Ferramenta",
+    image: "/images/google-forms.png",
+    imageAlt: "Imagem do Google Forms",
+  },
+  {
+    title: "Google Trends",
+    description:
+      "Pesquise tendências e descubra o interesse do público por jogos.",
+    href: "https://trends.google.com.br/trends/",
+    category: "Pesquisa",
+    image: "/images/google-trends.jpeg",
+    imageAlt: "Imagem do Google Trends",
+  },
+  {
+    title: "Persona de usuário",
+    description: "Consulte o material utilizado para definir o jogador ideal.",
+    href: "https://canva.link/x2aqz3xp6cqd52e",
+    category: "Atividade",
+    image: "/images/personausuario.png",
+    imageAlt: "Imagem do material de persona",
+  },
+  {
+    title: "Planilha da atividade",
+    description:
+      "Organize o orçamento, as estratégias, as metas e os cálculos da campanha.",
+    href: "https://docs.google.com/spreadsheets/d/1iUqScEp2A0aMHlyMK_a6ZLo4T1VttMluf_0b2Msbm4E/edit?usp=sharing",
+    category: "Atividade",
+    image: "/images/planilha.jpg",
+    imageAlt: "Imagem da planilha de marketing",
+  },
+   {
+    title: "Google Docs da atividade",
+    description:
+      "Organize o orçamento, as estratégias, as metas e os cálculos da campanha.",
+    href: "https://docs.google.com/document/d/14rGmFeTrKD8G9sidsPMk9pKEIiVTOJ0X4smMx35_Emc/edit?usp=sharing",
+    category: "Atividade",
+    image: "/images/googledocs.jpeg",
+    imageAlt: "Imagem do google docs de marketing",
+  },
+];
+
+const games = [
+  {
+    title: "Onikura",
+    href: "https://store.steampowered.com/app/3008640/Onikura/?l=portuguese",
+    image: "/images/onikura.jpg",
+    imageAlt: "Imagem do jogo Onikura",
+  },
+  {
+    title: "9 Kings",
+    href: "https://store.steampowered.com/app/2784470/9_Kings/",
+    image: "/images/9-kings.jpeg",
+    imageAlt: "Imagem do jogo 9 Kings",
+  },
+  {
+    title: "Super Mombo Quest",
+    href: "https://store.steampowered.com/app/1262040/Super_Mombo_Quest/?l=portuguese",
+    image: "/images/super-mombo-quest.jpeg",
+    imageAlt: "Imagem do jogo Super Mombo Quest",
+  },
+  {
+    title: "World of Tanks",
+    href: "https://store.steampowered.com/app/1407200/World_of_Tanks/?l=portuguese",
+    image: "/images/world-of-tanks.jpeg",
+    imageAlt: "Imagem do jogo World of Tanks",
+  },
+  {
+    title: "Hollow Knight: Silksong",
+    href: "https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/",
+    image: "/images/hollow-knight-silksong.avif",
+    imageAlt: "Imagem do jogo Hollow Knight Silksong",
+  },
+  {
+    title: "Hollow Knight",
+    href: "https://store.steampowered.com/app/367520/Hollow_Knight/",
+    image: "/images/hollow-knight.jpg",
+    imageAlt: "Imagem do jogo Hollow Knight",
+  },
+];
+
+function SectionHeading({
+  eyebrow,
+  title,
+  description,
+}: {
+  eyebrow: string;
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className="mb-7">
+      <div className="mb-5 overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800"></div>
+
+      <p className="text-sm font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400">
+        {eyebrow}
+      </p>
+      <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">
+        {title}
+      </h2>
+      <p className="mt-3 max-w-3xl leading-7 text-zinc-600 dark:text-zinc-400">
+        {description}
+      </p>
+    </div>
+  );
+}
+
+function ResourceCard({
+  title,
+  description,
+  href,
+  category,
+  image,
+  imageAlt,
+}: {
+  title: string;
+  description: string;
+  href: string;
+  category: string;
+  image: string;
+  imageAlt: string;
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group overflow-hidden rounded-2xl border border-zinc-200 bg-white transition hover:-translate-y-1 hover:border-zinc-400 hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-600"
+    >
+      <div className="relative aspect-video bg-zinc-200 dark:bg-zinc-800">
+        <Image
+          src={image}
+          alt={imageAlt}
+          fill
+          className="object-cover transition duration-300 group-hover:scale-[1.03]"
+        />
+      </div>
+
+      <div className="flex h-full flex-col p-5">
+        <span className="mb-3 w-fit rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
+          {category}
+        </span>
+        <h3 className="text-lg font-semibold group-hover:underline">{title}</h3>
+        <p className="mt-2 flex-1 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+          {description}
+        </p>
+        <span className="mt-5 text-sm font-semibold text-blue-600 dark:text-blue-400">
+          Acessar recurso ↗
+        </span>
+      </div>
+    </a>
+  );
+}
+
+function GameCard({
+  title,
+  description,
+  href,
+  image,
+  imageAlt,
+}: {
+  title: string;
+  description?: string;
+  href: string;
+  image: string;
+  imageAlt: string;
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group overflow-hidden rounded-2xl border border-zinc-200 bg-white transition hover:-translate-y-1 hover:border-zinc-400 hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-600"
+    >
+      <div className="relative aspect-video bg-zinc-200 dark:bg-zinc-800">
+        <Image
+          src={image}
+          alt={imageAlt}
+          fill
+          className="object-cover transition duration-300 group-hover:scale-[1.03]"
+        />
+      </div>
+
+      <div className="p-5">
+        <h3 className="font-semibold group-hover:underline">{title}</h3>
+        {description && (
+          <p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+            {description}
+          </p>
+        )}
+        <p className="mt-4 text-sm font-semibold text-blue-600 dark:text-blue-400">
+          Acessar página do jogo ↗
+        </p>
+      </div>
+    </a>
+  );
+}
+
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+    <div className="min-h-screen bg-zinc-50 font-sans text-zinc-900 dark:bg-black dark:text-zinc-100">
+      <header className="border-b border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-5">
+          <a href="#" className="flex items-center gap-3">
+            <div className="relative h-10 w-10 overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800">
+              <Image
+                src="/images/avanco.jpg"
+                alt="Logo da atividade"
+                fill
+                className="object-contain p-1"
+              />
+            </div>
+            <div>
+              <p className="font-bold">Marketing de Jogos</p>
+              <p className="text-xs text-zinc-500">Material de apoio</p>
+            </div>
+          </a>
+
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://avancomarketing.com.br/"
             target="_blank"
             rel="noopener noreferrer"
+            className="text-sm font-semibold text-zinc-600 hover:text-blue-600 dark:text-zinc-300"
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
+            Avanço Marketing ↗
           </a>
         </div>
+      </header>
+
+      <main className="mx-auto max-w-7xl px-6 py-12 sm:py-16">
+        <section className="mb-16">
+          <div className="relative mb-8 aspect-16/2 overflow-hidden rounded-3xl bg-zinc-200 dark:bg-zinc-900">
+            <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/45 to-transparent" />
+            <div className="absolute inset-0 flex flex-col justify-center p-6 sm:p-12">
+              <p className="text-sm font-semibold uppercase tracking-widest text-blue-300">
+                Guia de recursos
+              </p>
+              <h1 className="mt-3 max-w-3xl text-3xl font-bold text-white sm:text-5xl">
+                Criação de Anúncios para Jogos Digitais
+              </h1>
+              <p className="mt-4 max-w-2xl text-sm leading-6 text-zinc-200 sm:text-lg sm:leading-8">
+                Principais ferramentas para veicular seus anúncios e alcançar o seu público ideal.
+              </p>
+            </div>
+          </div>
+
+         
+        </section>
+
+        <section className="mb-16">
+          <SectionHeading
+            eyebrow="Materiais e ferramentas"
+            title="Comece por aqui"
+            description="Acesse os recursos necessários para pesquisar, definir a persona e organizar a campanha de marketing."
+          />
+
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {resources.map((resource) => (
+              <ResourceCard key={resource.title} {...resource} />
+            ))}
+          </div>
+        </section>
+
+
+ <div className="grid gap-4 sm:grid-cols-3">
+            <div className="rounded-2xl border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
+              <p className="text-sm text-zinc-500">Etapa 1</p>
+              <h3 className="mt-2 font-bold">Pesquise o público</h3>
+              <p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+                Descubra tendências e entenda a persona.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
+              <p className="text-sm text-zinc-500">Etapa 2</p>
+              <h3 className="mt-2 font-bold">Planeje a campanha</h3>
+              <p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+                Defina metas, canais, orçamento e cronograma.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
+              <p className="text-sm text-zinc-500">Etapa 3</p>
+              <h3 className="mt-2 font-bold">Analise os resultados</h3>
+              <p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+                Compare os indicadores e justifique as decisões.
+              </p>
+            </div>
+          </div>
+
+        <section className="mb-16">
+          <SectionHeading
+            eyebrow="Referências da atividade"
+            title="Jogos mencionados no slide"
+            description="Explore os jogos citados durante a apresentação para observar gênero, público, apresentação visual, avaliações e posicionamento."
+          />
+
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {games.map((game) => (
+              <GameCard key={game.title} {...game} />
+            ))}
+          </div>
+        </section>
+
+        <section className="mb-16">
+          <SectionHeading
+            eyebrow="Sobre o projeto"
+            title="Avanço Marketing"
+            description="Conheça a empresa e acesse o perfil profissional do responsável pelo material."
+          />
+
+          <div className="grid gap-5 md:grid-cols-2">
+            <a
+              href="https://avancomarketing.com.br/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group overflow-hidden rounded-2xl border border-zinc-200 bg-white transition hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900"
+            >
+              <div className="relative aspect-16/7 bg-zinc-200 dark:bg-zinc-800">
+                <Image
+                  src="/images/avanco.jpg"
+                  alt="Imagem do site da Avanço Marketing"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold group-hover:underline">
+                  Site da empresa
+                </h3>
+                <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+                  Conheça a Avanço Marketing.
+                </p>
+                <p className="mt-4 font-semibold text-blue-600 dark:text-blue-400">
+                  avancomarketing.com.br ↗
+                </p>
+              </div>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/celso-fischer/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group overflow-hidden rounded-2xl border border-zinc-200 bg-white transition hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900"
+            >
+              <div className="relative aspect-16/7 bg-zinc-200 dark:bg-zinc-800">
+                <Image
+                  src="/images/linkedin.webp"
+                  alt="Imagem do perfil profissional no LinkedIn"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold group-hover:underline">
+                  LinkedIn de Celso Fischer Neto
+                </h3>
+                <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+                  Acesse o perfil profissional.
+                </p>
+                <p className="mt-4 font-semibold text-blue-600 dark:text-blue-400">
+                  Ver perfil no LinkedIn ↗
+                </p>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <section className="relative overflow-hidden rounded-3xl bg-zinc-900 text-white">
+          <div className="relative aspect-16/5 min-h-64">
+            <div className="absolute inset-0 bg-black/70" />
+            <div className="absolute inset-0 flex flex-col justify-center p-7 sm:p-12">
+              <p className="text-sm font-semibold uppercase tracking-widest text-blue-300">
+                Sua campanha começa aqui
+              </p>
+              <h2 className="mt-3 max-w-2xl text-2xl font-bold sm:text-4xl">
+                Transforme ideias em uma estratégia de marketing.
+              </h2>
+              <p className="mt-4 max-w-2xl leading-7 text-zinc-200">
+                Escolha um jogo, conheça seu público e planeje como utilizar o
+                orçamento de R$ 5.000 para alcançar seus objetivos.
+              </p>
+              <a
+                href="https://docs.google.com/spreadsheets/d/1iUqScEp2A0aMHlyMK_a6ZLo4T1VttMluf_0b2Msbm4E/edit?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex w-fit rounded-xl bg-white px-5 py-3 font-semibold text-zinc-900 transition hover:bg-zinc-200"
+              >
+                Abrir planilha da atividade ↗
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <footer className="mt-12 flex flex-col justify-between gap-4 border-t border-zinc-200 pt-6 text-sm text-zinc-500 sm:flex-row dark:border-zinc-800">
+          <p>Material de apoio • Marketing de Jogos Digitais</p>
+          <a
+            href="https://www.linkedin.com/in/celso-fischer/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-blue-600"
+          >
+            Celso Fischer Neto · LinkedIn ↗
+          </a>
+        </footer>
       </main>
     </div>
   );
