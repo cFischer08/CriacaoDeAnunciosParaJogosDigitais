@@ -2,48 +2,31 @@ import Image from "next/image";
 
 const resources = [
   {
-    title: "Google Forms",
-    description: "Crie os formulários para a atividade.",
-    href: "https://docs.google.com/forms/u/0/",
+    title: "Meta Ads Manager",
+    description: "Gerenciador de anúncios do Facebook e Instagram.",
+    href: "https://adsmanager.facebook.com/adsmanager/manage/campaigns",
     category: "Ferramenta",
-    image: "/images/google-forms.png",
-    imageAlt: "Imagem do Google Forms",
+    image: "/images/LogoMeta.webp",
+    imageAlt: "Imagem do Meta Ads Manager",
   },
   {
-    title: "Google Trends",
+    title: "Google Ads",
     description:
-      "Pesquise tendências e descubra o interesse do público por jogos.",
-    href: "https://trends.google.com.br/trends/",
-    category: "Pesquisa",
-    image: "/images/google-trends.jpeg",
-    imageAlt: "Imagem do Google Trends",
+      "Gerenciador de anúncios do Google, YouTube e parceiros.",
+    href: "https://ads.google.com/",
+    category: "Ferramenta",
+    image: "/images/Google_Ads_Logo.webp",
+    imageAlt: "Imagem do Google Ads",
   },
   {
-    title: "Persona de usuário",
-    description: "Consulte o material utilizado para definir o jogador ideal.",
-    href: "https://canva.link/x2aqz3xp6cqd52e",
-    category: "Atividade",
-    image: "/images/personausuario.png",
-    imageAlt: "Imagem do material de persona",
-  },
-  {
-    title: "Planilha da atividade",
-    description:
-      "Organize o orçamento, as estratégias, as metas e os cálculos da campanha.",
-    href: "https://docs.google.com/spreadsheets/d/1iUqScEp2A0aMHlyMK_a6ZLo4T1VttMluf_0b2Msbm4E/edit?usp=sharing",
-    category: "Atividade",
-    image: "/images/planilha.jpg",
-    imageAlt: "Imagem da planilha de marketing",
-  },
-   {
-    title: "Google Docs da atividade",
-    description:
-      "Organize o orçamento, as estratégias, as metas e os cálculos da campanha.",
-    href: "https://docs.google.com/document/d/14rGmFeTrKD8G9sidsPMk9pKEIiVTOJ0X4smMx35_Emc/edit?usp=sharing",
-    category: "Atividade",
-    image: "/images/googledocs.jpeg",
-    imageAlt: "Imagem do google docs de marketing",
-  },
+    title: "Copywriter para Meta Ads",
+    description: "GPT especializado em anúncios para Facebook e Instagram.",
+    href: "https://chatgpt.com/g/g-68515cd4e4508191b8887d1f501f7889-copywriter-especialista-em-meta-ads",
+    category: "Ferramenta",
+    image: "/images/ChatGPT-Logo.webp",
+    imageAlt: "Imagem do ChatGPT",
+  }
+  
 ];
 
 const games = [
@@ -349,7 +332,7 @@ export default function Home() {
             >
               <div className="relative aspect-16/7 bg-zinc-200 dark:bg-zinc-800">
                 <Image
-                  src="/images/linkedin.webp"
+                  src="/images/Celso-Fischer.jpeg"
                   alt="Imagem do perfil profissional no LinkedIn"
                   fill
                   className="object-cover"
