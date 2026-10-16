@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ImageWithFallback from "./ImageWithFallback";
 
 const resources = [
   {
@@ -11,8 +11,7 @@ const resources = [
   },
   {
     title: "Google Ads",
-    description:
-      "Gerenciador de anúncios do Google, YouTube e parceiros.",
+    description: "Gerenciador de anúncios do Google, YouTube e parceiros.",
     href: "https://ads.google.com/",
     category: "Ferramenta",
     image: "/images/Google_Ads_Logo.webp",
@@ -25,8 +24,7 @@ const resources = [
     category: "Ferramenta",
     image: "/images/ChatGPT-Logo.webp",
     imageAlt: "Imagem do ChatGPT",
-  }
-  
+  },
 ];
 
 const games = [
@@ -79,8 +77,6 @@ function SectionHeading({
 }) {
   return (
     <div className="mb-7">
-      <div className="mb-5 overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800"></div>
-
       <p className="text-sm font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400">
         {eyebrow}
       </p>
@@ -114,18 +110,19 @@ function ResourceCard({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group overflow-hidden rounded-2xl border border-zinc-200 bg-white transition hover:-translate-y-1 hover:border-zinc-400 hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-600"
+      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white transition hover:-translate-y-1 hover:border-zinc-400 hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-600"
     >
-      <div className="relative aspect-video bg-zinc-200 dark:bg-zinc-800">
-        <Image
+      <div className="relative aspect-video shrink-0 bg-zinc-200 dark:bg-zinc-800">
+        <ImageWithFallback
           src={image}
           alt={imageAlt}
           fill
+          sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
           className="object-cover transition duration-300 group-hover:scale-[1.03]"
         />
       </div>
 
-      <div className="flex h-full flex-col p-5">
+      <div className="flex flex-1 flex-col p-5">
         <span className="mb-3 w-fit rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
           {category}
         </span>
@@ -143,13 +140,11 @@ function ResourceCard({
 
 function GameCard({
   title,
-  description,
   href,
   image,
   imageAlt,
 }: {
   title: string;
-  description?: string;
   href: string;
   image: string;
   imageAlt: string;
@@ -159,24 +154,20 @@ function GameCard({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group overflow-hidden rounded-2xl border border-zinc-200 bg-white transition hover:-translate-y-1 hover:border-zinc-400 hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-600"
+      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white transition hover:-translate-y-1 hover:border-zinc-400 hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-600"
     >
-      <div className="relative aspect-video bg-zinc-200 dark:bg-zinc-800">
-        <Image
+      <div className="relative aspect-video shrink-0 bg-zinc-200 dark:bg-zinc-800">
+        <ImageWithFallback
           src={image}
           alt={imageAlt}
           fill
+          sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
           className="object-cover transition duration-300 group-hover:scale-[1.03]"
         />
       </div>
 
-      <div className="p-5">
+      <div className="flex flex-1 flex-col p-5">
         <h3 className="font-semibold group-hover:underline">{title}</h3>
-        {description && (
-          <p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-            {description}
-          </p>
-        )}
         <p className="mt-4 text-sm font-semibold text-blue-600 dark:text-blue-400">
           Acessar página do jogo ↗
         </p>
@@ -191,11 +182,12 @@ export default function Home() {
       <header className="border-b border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-5">
           <a href="#" className="flex items-center gap-3">
-            <div className="relative h-10 w-10 overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800">
-              <Image
+            <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800">
+              <ImageWithFallback
                 src="/images/avanco.jpg"
                 alt="Logo da atividade"
                 fill
+                sizes="40px"
                 className="object-contain p-1"
               />
             </div>
@@ -218,7 +210,7 @@ export default function Home() {
 
       <main className="mx-auto max-w-7xl px-6 py-12 sm:py-16">
         <section className="mb-16">
-          <div className="relative mb-8 aspect-16/2 overflow-hidden rounded-3xl bg-zinc-200 dark:bg-zinc-900">
+          <div className="relative mb-8 aspect-16/5 overflow-hidden rounded-3xl bg-zinc-200 dark:bg-zinc-900 sm:aspect-16/3">
             <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/45 to-transparent" />
             <div className="absolute inset-0 flex flex-col justify-center p-6 sm:p-12">
               <p className="text-sm font-semibold uppercase tracking-widest text-blue-300">
@@ -232,8 +224,6 @@ export default function Home() {
               </p>
             </div>
           </div>
-
-         
         </section>
 
         <section className="mb-16">
@@ -243,15 +233,15 @@ export default function Home() {
             description="Acesse os recursos necessários para pesquisar, definir a persona e organizar a campanha de marketing."
           />
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {resources.map((resource) => (
               <ResourceCard key={resource.title} {...resource} />
             ))}
           </div>
         </section>
 
-
- <div className="grid gap-4 sm:grid-cols-3">
+        <section className="mb-16">
+          <div className="grid gap-4 sm:grid-cols-3">
             <div className="rounded-2xl border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
               <p className="text-sm text-zinc-500">Etapa 1</p>
               <h3 className="mt-2 font-bold">Pesquise o público</h3>
@@ -274,6 +264,7 @@ export default function Home() {
               </p>
             </div>
           </div>
+        </section>
 
         <section className="mb-16">
           <SectionHeading
@@ -301,20 +292,19 @@ export default function Home() {
               href="https://avancomarketing.com.br/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group overflow-hidden rounded-2xl border border-zinc-200 bg-white transition hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900"
+              className="group flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white transition hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900"
             >
-              <div className="relative aspect-16/7 bg-zinc-200 dark:bg-zinc-800">
-                <Image
+              <div className="relative aspect-16/7 shrink-0 bg-zinc-200 dark:bg-zinc-800">
+                <ImageWithFallback
                   src="/images/avanco.jpg"
                   alt="Imagem do site da Avanço Marketing"
                   fill
+                  sizes="(max-width: 767px) 100vw, 50vw"
                   className="object-cover"
                 />
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold group-hover:underline">
-                  Site da empresa
-                </h3>
+              <div className="flex flex-1 flex-col p-6">
+                <h3 className="text-xl font-bold group-hover:underline">Site da empresa</h3>
                 <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
                   Conheça a Avanço Marketing.
                 </p>
@@ -328,17 +318,18 @@ export default function Home() {
               href="https://www.linkedin.com/in/celso-fischer/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group overflow-hidden rounded-2xl border border-zinc-200 bg-white transition hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900"
+              className="group flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white transition hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900"
             >
-              <div className="relative aspect-16/7 bg-zinc-200 dark:bg-zinc-800">
-                <Image
+              <div className="relative aspect-16/7 shrink-0 bg-zinc-200 dark:bg-zinc-800">
+                <ImageWithFallback
                   src="/images/Celso-Fischer.jpeg"
                   alt="Imagem do perfil profissional no LinkedIn"
                   fill
+                  sizes="(max-width: 767px) 100vw, 50vw"
                   className="object-cover"
                 />
               </div>
-              <div className="p-6">
+              <div className="flex flex-1 flex-col p-6">
                 <h3 className="text-xl font-bold group-hover:underline">
                   LinkedIn de Celso Fischer Neto
                 </h3>
@@ -353,7 +344,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="relative overflow-hidden rounded-3xl bg-zinc-900 text-white">
+        <section className="relative mb-0 overflow-hidden rounded-3xl bg-zinc-900 text-white">
           <div className="relative aspect-16/5 min-h-64">
             <div className="absolute inset-0 bg-black/70" />
             <div className="absolute inset-0 flex flex-col justify-center p-7 sm:p-12">
@@ -364,8 +355,7 @@ export default function Home() {
                 Transforme ideias em uma estratégia de marketing.
               </h2>
               <p className="mt-4 max-w-2xl leading-7 text-zinc-200">
-                Escolha um jogo, conheça seu público e planeje como utilizar o
-                orçamento de R$ 5.000 para alcançar seus objetivos.
+                Escolha um jogo, conheça seu público e planeje como utilizar o orçamento de R$ 5.000 para alcançar seus objetivos.
               </p>
               <a
                 href="https://docs.google.com/spreadsheets/d/1iUqScEp2A0aMHlyMK_a6ZLo4T1VttMluf_0b2Msbm4E/edit?usp=sharing"
