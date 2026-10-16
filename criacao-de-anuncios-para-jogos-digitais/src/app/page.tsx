@@ -184,7 +184,7 @@ export default function Home() {
           <a href="#" className="flex items-center gap-3">
             <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800">
               <ImageWithFallback
-                src="/images/avanco.jpg"
+                src="/images/AvancoMarketing.jpeg"
                 alt="Logo da atividade"
                 fill
                 sizes="40px"
@@ -296,7 +296,7 @@ export default function Home() {
             >
               <div className="relative aspect-16/7 shrink-0 bg-zinc-200 dark:bg-zinc-800">
                 <ImageWithFallback
-                  src="/images/avanco.jpg"
+                  src="/images/AvancoMarketing.jpeg"
                   alt="Imagem do site da Avanço Marketing"
                   fill
                   sizes="(max-width: 767px) 100vw, 50vw"
