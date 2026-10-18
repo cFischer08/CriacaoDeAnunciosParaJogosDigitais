@@ -34,7 +34,7 @@ const resources: Resource[] = [
       "Plataforma para criar e gerenciar campanhas na Pesquisa Google, YouTube e outros espaços de publicidade do Google.",
     href: "https://ads.google.com/",
     category: "Ferramenta",
-    image: "/images/Google_Ads_Logo.webp",
+    image: "/images/Google_Ads_logo.webp",
     imageAlt: "Logo do Google Ads",
   },
   {
