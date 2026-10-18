@@ -52,7 +52,7 @@ const resources: Resource[] = [
       "Pesquise anunciantes e anúncios veiculados nas plataformas do Google, incluindo o YouTube. A disponibilidade de filtros e dados pode variar.",
     href: "https://adstransparency.google.com/?hl=pt-BR&region=BR",
     category: "Pesquisa de referências",
-    image: "/images/Google_Ads_Logo.webp",
+    image: "/images/Google_Ads_logo.webp",
     imageAlt: "Logo do Google Ads",
   },
   {
@@ -61,7 +61,7 @@ const resources: Resource[] = [
       "Documentação oficial para entender as opções de campanha e escolher uma de acordo com o objetivo de marketing.",
     href: "https://support.google.com/google-ads/answer/2567043?hl=pt-BR",
     category: "Documentação oficial",
-    image: "/images/Google_Ads_Logo.webp",
+    image: "/images/Google_Ads_logo.webp",
     imageAlt: "Logo do Google Ads",
   },
   {
