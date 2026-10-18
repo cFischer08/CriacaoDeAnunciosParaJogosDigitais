@@ -77,58 +77,58 @@ const resources: Resource[] = [
 
 const games: Game[] = [
   {
-    title: "Onikura",
-    description:
-      "Exemplo de jogo indie para pensar em como apresentar sua proposta, identidade visual e público em uma campanha.",
-    href: "https://store.steampowered.com/app/3008640/Onikura/?l=portuguese",
-    image: "/images/onikura.jpg",
-    imageAlt: "Imagem do jogo Onikura",
-    tag: "Indie",
-  },
-  {
-    title: "9 Kings",
-    description:
-      "Pode inspirar anúncios que destacam decisões estratégicas, construção de combinações e a promessa central da jogabilidade.",
-    href: "https://store.steampowered.com/app/2784470/9_Kings/",
-    image: "/images/9-kings.jpeg",
-    imageAlt: "Imagem do jogo 9 Kings",
-    tag: "Estratégia",
-  },
-  {
-    title: "Super Mombo Quest",
-    description:
-      "Uma referência para pensar em vídeos curtos de gameplay, movimento, desafio e leitura rápida da ação.",
-    href: "https://store.steampowered.com/app/1262040/Super_Mombo_Quest/?l=portuguese",
-    image: "/images/super-mombo-quest.jpeg",
-    imageAlt: "Imagem do jogo Super Mombo Quest",
-    tag: "Plataforma",
-  },
-  {
-    title: "World of Tanks",
-    description:
-      "Ajuda a discutir como apresentar a fantasia de jogo, a competição e a experiência multiplayer a públicos específicos.",
-    href: "https://store.steampowered.com/app/1407200/World_of_Tanks/?l=portuguese",
-    image: "/images/world-of-tanks.jpeg",
-    imageAlt: "Imagem do jogo World of Tanks",
-    tag: "Multiplayer",
-  },
-  {
     title: "Hollow Knight: Silksong",
     description:
-      "Um exemplo conhecido para discutir trailers, expectativa, diferenciação visual e comunicação de lançamento.",
+      "Aventura de ação em um mundo interconectado, com exploração, combates desafiadores e habilidades que evoluem ao longo da jornada.",
     href: "https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/",
-    image: "/images/hollow-knight-silksong.avif",
+    image: "/images/silksong.avif",
     imageAlt: "Imagem do jogo Hollow Knight: Silksong",
-    tag: "Aventura indie",
+    tag: "Indie Metroidvania",
   },
   {
-    title: "Hollow Knight",
+    title: "Hades II",
     description:
-      "Referência para observar identidade artística, ambientação e como transformar os diferenciais de um jogo em uma mensagem de anúncio.",
-    href: "https://store.steampowered.com/app/367520/Hollow_Knight/",
-    image: "/images/hollow-knight.jpg",
-    imageAlt: "Imagem do jogo Hollow Knight",
-    tag: "Aventura indie",
+      "Roguelike de ação com combates intensos, poderes divinos, combinações de habilidades e tentativas que oferecem novas possibilidades a cada jornada.",
+    href: "https://store.steampowered.com/app/1145350/Hades_II/",
+    image: "/images/hadesii.jpg",
+    imageAlt: "Imagem do jogo Hades II",
+    tag: "Roguelike de Ação",
+  },
+  {
+    title: "Honkai: Star Rail",
+    description:
+      "RPG de fantasia científica com combates por turnos, personagens colecionáveis, exploração de mundos e uma história desenvolvida por atualizações.",
+    href: "https://hsr.hoyoverse.com/ua2?utm_source=BR_google_US_search_NewA&hoyotrace_channel=ga_channel&gad_source=1&gad_campaignid=21212509582&gclid=CjwKCAjw3NHWBhANEiwAtpwId6cnOkmpIbZCArBgSDqOHEOPThTku3CQmXddvQ8GuG-Gq_DobHWY0xoCs9MQAvD_BwE",
+    image: "/images/Honkai-Star-Rail.webp",
+    imageAlt: "Imagem do jogo Honkai: Star Rail",
+    tag: "RPG Gacha",
+  },
+  {
+    title: "Valorant",
+    description:
+      "FPS tático competitivo que combina precisão, trabalho em equipe e agentes com habilidades únicas em partidas estratégicas.",
+    href: "https://playvalorant.com/pt-br/",
+    image: "/images/valorant.jpg",
+    imageAlt: "Imagem do jogo Valorant",
+    tag: "FPS Tático",
+  },
+  {
+    title: "Zenless Zone Zero",
+    description:
+      "RPG de ação com combates dinâmicos, equipes de personagens com estilos próprios e uma ambientação urbana estilizada em um mundo de fantasia científica.",
+    href: "https://store.steampowered.com/app/4162040/Zenless_Zone_Zero/",
+    image: "/images/zzz.webp",
+    imageAlt: "Imagem do jogo Zenless Zone Zero",
+    tag: "Gacha RPG de Ação",
+  },
+  {
+    title: "League of Legends",
+    description:
+      "MOBA competitivo em que duas equipes disputam objetivos estratégicos, combinando campeões com habilidades distintas, cooperação e tomada de decisões.",
+    href: "https://www.leagueoflegends.com/pt-br/",
+    image: "/images/lol.jpg",
+    imageAlt: "Imagem do jogo League of Legends",
+    tag: "MOBA",
   },
 ];
 
