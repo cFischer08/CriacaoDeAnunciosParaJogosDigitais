@@ -421,6 +421,9 @@ export default function Home() {
                 <a href="#google-ads" className="rounded-xl border border-white/40 px-5 py-3 font-semibold text-white transition hover:bg-white/10">
                   Explorar Google Ads
                 </a>
+                <a href="https://canva.link/74fks1apa1r147f" className="rounded-xl bg-blue-500 px-5 py-3 font-semibold text-white transition hover:bg-blue-500/80">
+                  Explorar Slides de Apoio
+                </a>
               </div>
             </div>
           </div>
